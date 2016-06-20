@@ -1,8 +1,9 @@
 ﻿#region Comments
-/*
- *
- * 
- * 
+/*Jon Wilhelm
+ *Code Scanner Program
+ * Description: This program will be used to Encode and Decode Barcodes, QR Codes, and the like. This program will also have SQL database features.
+ * I plan to add camera overlays and sound to guide the code capture process. There will also be user log in too for tracking time in/out. In the 
+ * Database there will be links to PDF bookmarks.
  * 
  */
 #endregion
@@ -46,12 +47,12 @@ namespace Code_Scanner
     {
         private FilterInfoCollection CaptureDevice;
         private VideoCaptureDevice FinalFrame;
-        private SoundPlayer _soundPlayer;
+        private SoundPlayer _soundPlayer; //Global defined variable for the sound file
 
         public Form1()
         {
             InitializeComponent();
-            //play sound
+            //Create instance of sound file, added to the debug but needs to be in the reference files.
             _soundPlayer = new SoundPlayer("beep2.wav");
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -99,7 +100,7 @@ namespace Code_Scanner
                 FinalFrame.Start();
                 //timer1.Enabled = false;
                 //Stop the decode thread here
-                //play sound
+                //play sound when Start button is pressed
                 _soundPlayer.Play();
                 Thread.Sleep(1000);
                 _soundPlayer.Stop();
