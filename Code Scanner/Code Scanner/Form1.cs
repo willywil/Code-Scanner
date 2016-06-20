@@ -3,14 +3,31 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge;
+using AForge.Imaging;
+using AForge.Imaging.Filters;
+using AForge.Imaging.ComplexFilters;
+using AForge.Imaging.ColorReduction;
+using AForge.Controls;
+using AForge.Genetic;
+using AForge.Math;
+using AForge.Math.Geometry;
+using AForge.Math.Metrics;
+using AForge.Math.Random;
+using AForge.Neuro;
+using AForge.Neuro.Learning;
+using AForge.Vision;
+using AForge.Vision.Motion;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using ZXing;
+using ZXing.Aztec;
+using ZXing.Common;
 using ZXing.QrCode;
 
 namespace Code_Scanner
@@ -84,7 +101,9 @@ namespace Code_Scanner
 
         private void btnStop_Click(object sender, EventArgs e) //Stop video capture device and decoding function
         {
-
+            pictureBox1.Image = null;
+            FinalFrame.Stop();
+            //timer1.Enabled = false;
         }
 
         private void btnEncode_Click(object sender, EventArgs e) //Take selected information and command encoding of info, Possibly do this in a different form.
@@ -122,6 +141,7 @@ namespace Code_Scanner
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)//Exit Application, verify releasing of memory, closing of video stream, and closing of decoding/encoding functions
         {
+            FinalFrame.Stop();
             Application.Exit();
         }
     }
