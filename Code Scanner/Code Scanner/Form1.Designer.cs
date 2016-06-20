@@ -33,7 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CamCombo = new System.Windows.Forms.ComboBox();
             this.btnStop = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEncode = new System.Windows.Forms.Button();
             this.btnDecode = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -81,15 +81,17 @@
             this.btnStop.TabIndex = 3;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // button3
+            // btnEncode
             // 
-            this.button3.Location = new System.Drawing.Point(375, 556);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Encode";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEncode.Location = new System.Drawing.Point(375, 556);
+            this.btnEncode.Name = "btnEncode";
+            this.btnEncode.Size = new System.Drawing.Size(75, 23);
+            this.btnEncode.TabIndex = 4;
+            this.btnEncode.Text = "Encode";
+            this.btnEncode.UseVisualStyleBackColor = true;
+            this.btnEncode.Click += new System.EventHandler(this.btnEncode_Click);
             // 
             // btnDecode
             // 
@@ -99,6 +101,7 @@
             this.btnDecode.TabIndex = 5;
             this.btnDecode.Text = "Decode";
             this.btnDecode.UseVisualStyleBackColor = true;
+            this.btnDecode.Click += new System.EventHandler(this.btnDecode_Click);
             // 
             // btnSave
             // 
@@ -108,6 +111,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // menuStrip1
             // 
@@ -129,23 +133,26 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // openToolStripMenuItem
+            // newToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Name = "newToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "New";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Open";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Open";
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -156,7 +163,7 @@
             this.ClientSize = new System.Drawing.Size(1146, 640);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnDecode);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnEncode);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.CamCombo);
             this.Controls.Add(this.pictureBox1);
@@ -185,7 +192,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox CamCombo;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEncode;
         private System.Windows.Forms.Button btnDecode;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.MenuStrip menuStrip1;
