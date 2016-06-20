@@ -1,4 +1,12 @@
-﻿using System;
+﻿#region Comments
+/*
+ *
+ * 
+ * 
+ * 
+ */
+#endregion
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +37,8 @@ using ZXing;
 using ZXing.Aztec;
 using ZXing.Common;
 using ZXing.QrCode;
+using System.Media;
+
 
 namespace Code_Scanner
 {
@@ -36,10 +46,13 @@ namespace Code_Scanner
     {
         private FilterInfoCollection CaptureDevice;
         private VideoCaptureDevice FinalFrame;
+        private SoundPlayer _soundPlayer;
 
         public Form1()
         {
             InitializeComponent();
+            //play sound
+            _soundPlayer = new SoundPlayer("beep2.wav");
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -86,6 +99,10 @@ namespace Code_Scanner
                 FinalFrame.Start();
                 //timer1.Enabled = false;
                 //Stop the decode thread here
+                //play sound
+                _soundPlayer.Play();
+                Thread.Sleep(1000);
+                _soundPlayer.Stop();
             }
             catch
             {
